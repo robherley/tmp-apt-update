@@ -1,0 +1,13 @@
+name: apt
+on:
+  workflow_dispatch:
+
+jobs:
+  apt:
+    strategy:
+      matrix:
+        runner: [ubuntu-latest, self-hosted]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: Run apt-get update
+        run: sudo apt-get update
